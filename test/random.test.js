@@ -11,6 +11,9 @@
     so that we may still have access to it outside beforeEach. 
 */}
 
+const assert = require('assert');
+
+
 let car;
 
 class Car {
@@ -23,15 +26,15 @@ class Car {
     }
 }
 
-beforeEach('set up car', () => {
-    car = new Car();
-});
-describe('Car', () => {
-    it('can park', () => {
-        assert.equal(car.park(), 'stopped');
-    });
+// beforeEach('set up car', () => {
+//     car = new Car();
+// });
+// describe('Car', () => {
+//     it('can park', () => {
+//         assert.equal(car.park(), 'stopped');
+//     });
 
-    it('can go go', () => {
-        assert.equal(car.drive(), 'vroom vroom');
-    });
-});
+//     it('can go go', () => {
+//         assert.equal(car.drive(), 'vroom vroom');
+//     });
+// });
