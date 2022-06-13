@@ -28,6 +28,7 @@ which is our sole means of intereacting with the ETH network. Our portal to Ethe
 
 describe('Inbox', () => {
     it('deploys a contract', () => {
-        console.log(inbox);
+        //ok method on assert insures that the value we pass in exists.
+        assert.ok(inbox.options.address);
     });
 });
