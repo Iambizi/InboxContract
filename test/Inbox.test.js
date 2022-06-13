@@ -24,7 +24,7 @@ beforeEach(async () => {
 
     {/*The following lines of code are tied to the web3 library 
 which is our sole means of intereacting with the ETH network. Our portal to Ethereum*/}
-//inbox is instance of the contract, a javascript object that represents the contract that exists on the block chain.
+    //inbox is instance of the contract, a javascript object that represents the contract that exists on the block chain.
     inbox = await new web3.eth.Contract((JSON.parse(interface)))
         .deploy({ data: bytecode, arguments: [INITIAL_STRING] })
         .send({ from: getAccounts[0], gas: '1000000' });
@@ -41,17 +41,18 @@ describe('Inbox', () => {
     // The following test checks that we always pass a default message to our contract
     //We are going to call a method on our inbox contract
 
-    it('has a default message', async()=>{
+    it('has a default message', async () => {
         //inbox is instance of the contract, a javascript object that represents the contract that exists on the block chain.
-    {/*
+        {/*
         inbox has property called '.methods'. 
         '.methods' is an object that contains all of the different public functions that exists in our contract.
         So in our inbox contract this would give us access to 2 methods: message() and setMessage()
     */}
-    // so this value retrieves our message
+        // so this value retrieves our message
         const message = await inbox.methods.message().call();
-    });
 
-    //Now we need to assert the value of our message.
-    assert.equal(message, INITIAL_STRING);
+
+        //Now we need to assert the value of our message.
+        assert.equal(message, INITIAL_STRING);
+    });
 });
