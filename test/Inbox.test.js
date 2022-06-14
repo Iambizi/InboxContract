@@ -55,4 +55,10 @@ describe('Inbox', () => {
         //Now we need to assert the value of our message.
         assert.equal(message, INITIAL_STRING);
     });
+
+    it('can change the message', async () => {
+       await inbox.methods.setMessage('bye').send({ from: getAccounts[0] });
+       const message = await inbox.methods.message().call();
+       assert.equal(message, 'bye');
+    });
 });
