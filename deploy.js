@@ -9,6 +9,7 @@ const provider = new HDWalletProvider(
 
 const web3 = new Web3(provider);
 
+//Note that the deployment code will be very similar to what we did in inbox.test.js
 const deploy = async () => {
     const accounts = await web3.eth.getAccounts();
 
